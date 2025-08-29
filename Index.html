@@ -1,0 +1,1628 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pure Nature - Herbal Organic Products</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        .hero-gradient { background: linear-gradient(135deg, #065f46 0%, #047857 50%, #059669 100%); }
+        .card-hover { transition: all 0.3s ease; }
+        .card-hover:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+    </style>
+</head>
+<body class="bg-green-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <div class="text-xl sm:text-2xl font-bold text-green-700">🌿 Pure Nature</div>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="#" onclick="showPage('home')" class="text-green-700 hover:text-green-900 px-3 py-2 font-medium">Home</a>
+                        <a href="#" onclick="showPage('products')" class="text-gray-700 hover:text-green-700 px-3 py-2 font-medium">Products</a>
+                        <a href="#" onclick="showPage('shop')" class="text-gray-700 hover:text-green-700 px-3 py-2 font-medium">Shop</a>
+                        <a href="#" onclick="showPage('learn')" class="text-gray-700 hover:text-green-700 px-3 py-2 font-medium">Learn More</a>
+                        <a href="#contact" class="text-gray-700 hover:text-green-700 px-3 py-2 font-medium">Contact</a>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-2">
+                    <button onclick="showPage('shop')" class="bg-green-600 hover:bg-green-700 text-white px-3 sm:px-6 py-2 rounded-full font-medium transition-colors text-sm sm:text-base">
+                        Shop Now
+                    </button>
+                    <button id="cart-btn" onclick="toggleCart()" class="relative bg-gray-100 hover:bg-gray-200 text-gray-700 p-2 rounded-full transition-colors">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 13m0 0l-1.5 6M7 13l-1.5 6m0 0h9m-9 0V19a2 2 0 002 2h7a2 2 0 002-2v-.5"></path>
+                        </svg>
+                        <span id="cart-count" class="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center hidden">0</span>
+                    </button>
+                    <button id="mobile-menu-btn" class="md:hidden text-gray-700 hover:text-green-700 p-2">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <!-- Mobile menu -->
+            <div id="mobile-menu" class="md:hidden hidden bg-white border-t">
+                <div class="px-2 pt-2 pb-3 space-y-1">
+                    <a href="#" onclick="showPage('home')" class="block px-3 py-2 text-green-700 font-medium">Home</a>
+                    <a href="#" onclick="showPage('products')" class="block px-3 py-2 text-gray-700 hover:text-green-700">Products</a>
+                    <a href="#" onclick="showPage('shop')" class="block px-3 py-2 text-gray-700 hover:text-green-700">Shop</a>
+                    <a href="#" onclick="showPage('learn')" class="block px-3 py-2 text-gray-700 hover:text-green-700">Learn More</a>
+                    <a href="#contact" class="block px-3 py-2 text-gray-700 hover:text-green-700">Contact</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content Container -->
+    <div id="main-content">
+    <!-- Hero Section -->
+    <section id="home" class="hero-gradient text-white py-12 sm:py-16 lg:py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 leading-tight">
+                    Pure Herbal Wellness
+                </h1>
+                <p class="text-lg sm:text-xl md:text-2xl mb-6 sm:mb-8 text-green-100 max-w-3xl mx-auto px-4">
+                    Discover the power of nature with our premium organic herbal products, carefully crafted for your health and wellbeing
+                </p>
+                <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center px-4">
+                    <button onclick="showPage('products')" class="bg-white text-green-700 px-6 sm:px-8 py-3 sm:py-4 rounded-full font-semibold text-base sm:text-lg hover:bg-green-50 transition-colors">
+                        Explore Products
+                    </button>
+                    <button onclick="showPage('learn')" class="border-2 border-white text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full font-semibold text-base sm:text-lg hover:bg-white hover:text-green-700 transition-colors">
+                        Learn More
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="py-12 sm:py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8">
+                <div class="text-center p-4 sm:p-6">
+                    <div class="text-3xl sm:text-4xl mb-3 sm:mb-4">🌱</div>
+                    <h3 class="text-lg sm:text-xl font-semibold text-gray-800 mb-2 sm:mb-3">100% Organic</h3>
+                    <p class="text-sm sm:text-base text-gray-600">All our products are certified organic, grown without harmful chemicals or pesticides</p>
+                </div>
+                <div class="text-center p-4 sm:p-6">
+                    <div class="text-3xl sm:text-4xl mb-3 sm:mb-4">🧪</div>
+                    <h3 class="text-lg sm:text-xl font-semibold text-gray-800 mb-2 sm:mb-3">Lab Tested</h3>
+                    <p class="text-sm sm:text-base text-gray-600">Every batch is rigorously tested for purity, potency, and safety in certified laboratories</p>
+                </div>
+                <div class="text-center p-4 sm:p-6 sm:col-span-2 md:col-span-1">
+                    <div class="text-3xl sm:text-4xl mb-3 sm:mb-4">🚚</div>
+                    <h3 class="text-lg sm:text-xl font-semibold text-gray-800 mb-2 sm:mb-3">Fast Delivery</h3>
+                    <p class="text-sm sm:text-base text-gray-600">Free shipping on orders over $50 with fast, secure delivery to your doorstep</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="py-12 sm:py-16 bg-green-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-8 sm:mb-12">
+                <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-800 mb-3 sm:mb-4">Featured Products</h2>
+                <p class="text-base sm:text-lg lg:text-xl text-gray-600 max-w-2xl mx-auto px-4">
+                    Discover our most popular herbal remedies, each carefully selected for maximum potency and effectiveness
+                </p>
+            </div>
+            
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+                <!-- Product 1 -->
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden card-hover">
+                    <div class="h-40 sm:h-48 bg-gradient-to-br from-green-400 to-green-600 flex items-center justify-center">
+                        <div class="text-4xl sm:text-6xl">🍃</div>
+                    </div>
+                    <div class="p-4 sm:p-6">
+                        <h3 class="text-lg sm:text-xl font-semibold text-gray-800 mb-2">Turmeric Capsules</h3>
+                        <p class="text-sm sm:text-base text-gray-600 mb-4">Premium organic turmeric with black pepper for enhanced absorption and anti-inflammatory benefits</p>
+                        <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-3">
+                            <span class="text-xl sm:text-2xl font-bold text-green-600">$24.99</span>
+                            <button class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-full font-medium transition-colors text-sm sm:text-base w-full sm:w-auto">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden card-hover">
+                    <div class="h-40 sm:h-48 bg-gradient-to-br from-purple-400 to-purple-600 flex items-center justify-center">
+                        <div class="text-4xl sm:text-6xl">🌸</div>
+                    </div>
+                    <div class="p-4 sm:p-6">
+                        <h3 class="text-lg sm:text-xl font-semibold text-gray-800 mb-2">Ashwagandha Root</h3>
+                        <p class="text-sm sm:text-base text-gray-600 mb-4">Adaptogenic herb to help manage stress, improve energy levels, and support overall wellness</p>
+                        <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-3">
+                            <span class="text-xl sm:text-2xl font-bold text-green-600">$29.99</span>
+                            <button class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-full font-medium transition-colors text-sm sm:text-base w-full sm:w-auto">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 3 -->
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden card-hover">
+                    <div class="h-40 sm:h-48 bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center">
+                        <div class="text-4xl sm:text-6xl">🫖</div>
+                    </div>
+                    <div class="p-4 sm:p-6">
+                        <h3 class="text-lg sm:text-xl font-semibold text-gray-800 mb-2">Herbal Tea Blend</h3>
+                        <p class="text-sm sm:text-base text-gray-600 mb-4">Calming blend of chamomile, lavender, and lemon balm for relaxation and better sleep</p>
+                        <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-3">
+                            <span class="text-xl sm:text-2xl font-bold text-green-600">$19.99</span>
+                            <button class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-full font-medium transition-colors text-sm sm:text-base w-full sm:w-auto">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 4 -->
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden card-hover">
+                    <div class="h-40 sm:h-48 bg-gradient-to-br from-orange-400 to-orange-600 flex items-center justify-center">
+                        <div class="text-4xl sm:text-6xl">🍯</div>
+                    </div>
+                    <div class="p-4 sm:p-6">
+                        <h3 class="text-lg sm:text-xl font-semibold text-gray-800 mb-2">Manuka Honey</h3>
+                        <p class="text-sm sm:text-base text-gray-600 mb-4">Raw, unprocessed Manuka honey with natural antibacterial and healing properties</p>
+                        <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-3">
+                            <span class="text-xl sm:text-2xl font-bold text-green-600">$39.99</span>
+                            <button class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-full font-medium transition-colors text-sm sm:text-base w-full sm:w-auto">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 5 -->
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden card-hover">
+                    <div class="h-40 sm:h-48 bg-gradient-to-br from-red-400 to-red-600 flex items-center justify-center">
+                        <div class="text-4xl sm:text-6xl">🌶️</div>
+                    </div>
+                    <div class="p-4 sm:p-6">
+                        <h3 class="text-lg sm:text-xl font-semibold text-gray-800 mb-2">Ginger Extract</h3>
+                        <p class="text-sm sm:text-base text-gray-600 mb-4">Concentrated ginger extract for digestive support and natural nausea relief</p>
+                        <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-3">
+                            <span class="text-xl sm:text-2xl font-bold text-green-600">$22.99</span>
+                            <button class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-full font-medium transition-colors text-sm sm:text-base w-full sm:w-auto">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 6 -->
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden card-hover">
+                    <div class="h-40 sm:h-48 bg-gradient-to-br from-indigo-400 to-indigo-600 flex items-center justify-center">
+                        <div class="text-4xl sm:text-6xl">💜</div>
+                    </div>
+                    <div class="p-4 sm:p-6">
+                        <h3 class="text-lg sm:text-xl font-semibold text-gray-800 mb-2">Elderberry Syrup</h3>
+                        <p class="text-sm sm:text-base text-gray-600 mb-4">Immune-boosting elderberry syrup with honey and natural vitamin C</p>
+                        <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-3">
+                            <span class="text-xl sm:text-2xl font-bold text-green-600">$27.99</span>
+                            <button class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-full font-medium transition-colors text-sm sm:text-base w-full sm:w-auto">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-12 sm:py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+                <div class="order-2 lg:order-1">
+                    <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-800 mb-4 sm:mb-6">Our Story</h2>
+                    <p class="text-base sm:text-lg text-gray-600 mb-4 sm:mb-6">
+                        Founded in 2015, Pure Nature began as a small family business with a simple mission: to provide the highest quality herbal products that harness the healing power of nature.
+                    </p>
+                    <p class="text-base sm:text-lg text-gray-600 mb-4 sm:mb-6">
+                        We work directly with organic farmers and use traditional extraction methods to preserve the natural potency of each herb. Every product is carefully crafted in small batches to ensure maximum freshness and effectiveness.
+                    </p>
+                    <div class="flex flex-col sm:flex-row sm:items-center sm:space-x-6 space-y-4 sm:space-y-0">
+                        <div class="text-center sm:text-left">
+                            <div class="text-xl sm:text-2xl font-bold text-green-600">10,000+</div>
+                            <div class="text-xs sm:text-sm text-gray-600">Happy Customers</div>
+                        </div>
+                        <div class="text-center sm:text-left">
+                            <div class="text-xl sm:text-2xl font-bold text-green-600">50+</div>
+                            <div class="text-xs sm:text-sm text-gray-600">Herbal Products</div>
+                        </div>
+                        <div class="text-center sm:text-left">
+                            <div class="text-xl sm:text-2xl font-bold text-green-600">8</div>
+                            <div class="text-xs sm:text-sm text-gray-600">Years Experience</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-green-100 rounded-2xl p-6 sm:p-8 text-center order-1 lg:order-2">
+                    <div class="text-6xl sm:text-8xl mb-3 sm:mb-4">🌿</div>
+                    <h3 class="text-xl sm:text-2xl font-semibold text-gray-800 mb-3 sm:mb-4">Certified Organic</h3>
+                    <p class="text-sm sm:text-base text-gray-600">
+                        All our products are USDA Organic certified and third-party tested for purity and potency
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="py-12 sm:py-16 bg-green-600">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-2xl sm:text-3xl font-bold text-white mb-3 sm:mb-4">Stay Updated</h2>
+            <p class="text-base sm:text-lg lg:text-xl text-green-100 mb-6 sm:mb-8 px-4">
+                Get the latest news about new products, health tips, and exclusive offers
+            </p>
+            <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 max-w-md mx-auto">
+                <input 
+                    type="email" 
+                    placeholder="Enter your email" 
+                    class="flex-1 px-4 py-3 rounded-full border-0 focus:ring-2 focus:ring-white focus:outline-none text-sm sm:text-base"
+                >
+                <button class="bg-white text-green-600 px-6 sm:px-8 py-3 rounded-full font-semibold hover:bg-green-50 transition-colors text-sm sm:text-base">
+                    Subscribe
+                </button>
+            </div>
+        </div>
+    </section>
+    </div>
+
+    <!-- Products Page -->
+    <div id="products-page" class="hidden">
+        <!-- Products Hero -->
+        <section class="bg-gradient-to-r from-green-600 to-green-700 text-white py-16 sm:py-20">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">Our Complete Product Range</h1>
+                <p class="text-lg sm:text-xl text-green-100 max-w-3xl mx-auto">
+                    Discover our full collection of premium organic herbal products, each carefully selected and tested for maximum potency
+                </p>
+            </div>
+        </section>
+
+        <!-- Product Categories -->
+        <section class="py-12 sm:py-16 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+                    <button onclick="filterProducts('all')" class="category-btn active bg-green-600 text-white px-6 py-3 rounded-full font-medium hover:bg-green-700 transition-colors">
+                        All Products
+                    </button>
+                    <button onclick="filterProducts('capsules')" class="category-btn bg-gray-200 text-gray-700 px-6 py-3 rounded-full font-medium hover:bg-gray-300 transition-colors">
+                        Capsules
+                    </button>
+                    <button onclick="filterProducts('teas')" class="category-btn bg-gray-200 text-gray-700 px-6 py-3 rounded-full font-medium hover:bg-gray-300 transition-colors">
+                        Teas & Blends
+                    </button>
+                    <button onclick="filterProducts('extracts')" class="category-btn bg-gray-200 text-gray-700 px-6 py-3 rounded-full font-medium hover:bg-gray-300 transition-colors">
+                        Extracts
+                    </button>
+                </div>
+
+                <!-- All Products Grid -->
+                <div id="products-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                    <!-- Capsules Category -->
+                    <div class="product-item capsules bg-white rounded-2xl shadow-lg overflow-hidden card-hover">
+                        <div class="h-40 bg-gradient-to-br from-green-400 to-green-600 flex items-center justify-center">
+                            <div class="text-4xl">🍃</div>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="text-lg font-semibold text-gray-800 mb-2">Turmeric Capsules</h3>
+                            <p class="text-sm text-gray-600 mb-3">Anti-inflammatory support</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-xl font-bold text-green-600">$24.99</span>
+                                <button class="bg-green-600 hover:bg-green-700 text-white px-3 py-1 rounded-full text-sm">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-item capsules bg-white rounded-2xl shadow-lg overflow-hidden card-hover">
+                        <div class="h-40 bg-gradient-to-br from-purple-400 to-purple-600 flex items-center justify-center">
+                            <div class="text-4xl">🌸</div>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="text-lg font-semibold text-gray-800 mb-2">Ashwagandha Root</h3>
+                            <p class="text-sm text-gray-600 mb-3">Stress management</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-xl font-bold text-green-600">$29.99</span>
+                                <button class="bg-green-600 hover:bg-green-700 text-white px-3 py-1 rounded-full text-sm">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-item capsules bg-white rounded-2xl shadow-lg overflow-hidden card-hover">
+                        <div class="h-40 bg-gradient-to-br from-yellow-400 to-yellow-600 flex items-center justify-center">
+                            <div class="text-4xl">🌻</div>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="text-lg font-semibold text-gray-800 mb-2">Milk Thistle</h3>
+                            <p class="text-sm text-gray-600 mb-3">Liver support</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-xl font-bold text-green-600">$26.99</span>
+                                <button class="bg-green-600 hover:bg-green-700 text-white px-3 py-1 rounded-full text-sm">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-item capsules bg-white rounded-2xl shadow-lg overflow-hidden card-hover">
+                        <div class="h-40 bg-gradient-to-br from-pink-400 to-pink-600 flex items-center justify-center">
+                            <div class="text-4xl">🌺</div>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="text-lg font-semibold text-gray-800 mb-2">Echinacea</h3>
+                            <p class="text-sm text-gray-600 mb-3">Immune support</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-xl font-bold text-green-600">$23.99</span>
+                                <button class="bg-green-600 hover:bg-green-700 text-white px-3 py-1 rounded-full text-sm">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Teas Category -->
+                    <div class="product-item teas bg-white rounded-2xl shadow-lg overflow-hidden card-hover">
+                        <div class="h-40 bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center">
+                            <div class="text-4xl">🫖</div>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="text-lg font-semibold text-gray-800 mb-2">Herbal Tea Blend</h3>
+                            <p class="text-sm text-gray-600 mb-3">Relaxation & sleep</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-xl font-bold text-green-600">$19.99</span>
+                                <button class="bg-green-600 hover:bg-green-700 text-white px-3 py-1 rounded-full text-sm">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-item teas bg-white rounded-2xl shadow-lg overflow-hidden card-hover">
+                        <div class="h-40 bg-gradient-to-br from-teal-400 to-teal-600 flex items-center justify-center">
+                            <div class="text-4xl">🍵</div>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="text-lg font-semibold text-gray-800 mb-2">Green Tea Plus</h3>
+                            <p class="text-sm text-gray-600 mb-3">Antioxidant boost</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-xl font-bold text-green-600">$21.99</span>
+                                <button class="bg-green-600 hover:bg-green-700 text-white px-3 py-1 rounded-full text-sm">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-item teas bg-white rounded-2xl shadow-lg overflow-hidden card-hover">
+                        <div class="h-40 bg-gradient-to-br from-amber-400 to-amber-600 flex items-center justify-center">
+                            <div class="text-4xl">🌼</div>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="text-lg font-semibold text-gray-800 mb-2">Chamomile Tea</h3>
+                            <p class="text-sm text-gray-600 mb-3">Calming & soothing</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-xl font-bold text-green-600">$18.99</span>
+                                <button class="bg-green-600 hover:bg-green-700 text-white px-3 py-1 rounded-full text-sm">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-item teas bg-white rounded-2xl shadow-lg overflow-hidden card-hover">
+                        <div class="h-40 bg-gradient-to-br from-violet-400 to-violet-600 flex items-center justify-center">
+                            <div class="text-4xl">💜</div>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="text-lg font-semibold text-gray-800 mb-2">Lavender Tea</h3>
+                            <p class="text-sm text-gray-600 mb-3">Stress relief</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-xl font-bold text-green-600">$20.99</span>
+                                <button class="bg-green-600 hover:bg-green-700 text-white px-3 py-1 rounded-full text-sm">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Extracts Category -->
+                    <div class="product-item extracts bg-white rounded-2xl shadow-lg overflow-hidden card-hover">
+                        <div class="h-40 bg-gradient-to-br from-red-400 to-red-600 flex items-center justify-center">
+                            <div class="text-4xl">🌶️</div>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="text-lg font-semibold text-gray-800 mb-2">Ginger Extract</h3>
+                            <p class="text-sm text-gray-600 mb-3">Digestive support</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-xl font-bold text-green-600">$22.99</span>
+                                <button class="bg-green-600 hover:bg-green-700 text-white px-3 py-1 rounded-full text-sm">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-item extracts bg-white rounded-2xl shadow-lg overflow-hidden card-hover">
+                        <div class="h-40 bg-gradient-to-br from-orange-400 to-orange-600 flex items-center justify-center">
+                            <div class="text-4xl">🍯</div>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="text-lg font-semibold text-gray-800 mb-2">Manuka Honey</h3>
+                            <p class="text-sm text-gray-600 mb-3">Natural antibacterial</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-xl font-bold text-green-600">$39.99</span>
+                                <button class="bg-green-600 hover:bg-green-700 text-white px-3 py-1 rounded-full text-sm">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-item extracts bg-white rounded-2xl shadow-lg overflow-hidden card-hover">
+                        <div class="h-40 bg-gradient-to-br from-indigo-400 to-indigo-600 flex items-center justify-center">
+                            <div class="text-4xl">💜</div>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="text-lg font-semibold text-gray-800 mb-2">Elderberry Syrup</h3>
+                            <p class="text-sm text-gray-600 mb-3">Immune boost</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-xl font-bold text-green-600">$27.99</span>
+                                <button class="bg-green-600 hover:bg-green-700 text-white px-3 py-1 rounded-full text-sm">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-item extracts bg-white rounded-2xl shadow-lg overflow-hidden card-hover">
+                        <div class="h-40 bg-gradient-to-br from-emerald-400 to-emerald-600 flex items-center justify-center">
+                            <div class="text-4xl">🌿</div>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="text-lg font-semibold text-gray-800 mb-2">Oregano Oil</h3>
+                            <p class="text-sm text-gray-600 mb-3">Natural antimicrobial</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-xl font-bold text-green-600">$32.99</span>
+                                <button class="bg-green-600 hover:bg-green-700 text-white px-3 py-1 rounded-full text-sm">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Learn More Page -->
+    <div id="learn-page" class="hidden">
+        <!-- Learn Hero -->
+        <section class="bg-gradient-to-r from-green-700 to-green-800 text-white py-16 sm:py-20">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">Learn About Herbal Wellness</h1>
+                <p class="text-lg sm:text-xl text-green-100 max-w-3xl mx-auto">
+                    Discover the science behind herbal medicine and how natural remedies can support your health journey
+                </p>
+            </div>
+        </section>
+
+        <!-- Educational Content -->
+        <section class="py-12 sm:py-16 bg-white">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                <!-- What Are Herbal Products -->
+                <div class="mb-12">
+                    <h2 class="text-2xl sm:text-3xl font-bold text-gray-800 mb-6">What Are Herbal Products?</h2>
+                    <div class="bg-green-50 rounded-2xl p-6 sm:p-8 mb-6">
+                        <p class="text-base sm:text-lg text-gray-700 mb-4">
+                            Herbal products are natural remedies derived from plants that have been used for thousands of years to support health and wellness. These products harness the therapeutic properties of herbs, roots, flowers, and other plant materials.
+                        </p>
+                        <p class="text-base sm:text-lg text-gray-700">
+                            Unlike synthetic medications, herbal products work with your body's natural processes to promote healing and maintain balance.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Benefits Section -->
+                <div class="mb-12">
+                    <h2 class="text-2xl sm:text-3xl font-bold text-gray-800 mb-6">Benefits of Organic Herbal Products</h2>
+                    <div class="grid sm:grid-cols-2 gap-6">
+                        <div class="bg-white border-2 border-green-200 rounded-xl p-6">
+                            <div class="text-3xl mb-3">🌱</div>
+                            <h3 class="text-xl font-semibold text-gray-800 mb-3">Natural & Pure</h3>
+                            <p class="text-gray-600">Free from synthetic chemicals, pesticides, and artificial additives that can harm your body.</p>
+                        </div>
+                        <div class="bg-white border-2 border-green-200 rounded-xl p-6">
+                            <div class="text-3xl mb-3">⚖️</div>
+                            <h3 class="text-xl font-semibold text-gray-800 mb-3">Gentle & Balanced</h3>
+                            <p class="text-gray-600">Work harmoniously with your body's natural systems without harsh side effects.</p>
+                        </div>
+                        <div class="bg-white border-2 border-green-200 rounded-xl p-6">
+                            <div class="text-3xl mb-3">🔬</div>
+                            <h3 class="text-xl font-semibold text-gray-800 mb-3">Scientifically Backed</h3>
+                            <p class="text-gray-600">Modern research validates many traditional uses of herbal medicines.</p>
+                        </div>
+                        <div class="bg-white border-2 border-green-200 rounded-xl p-6">
+                            <div class="text-3xl mb-3">🌍</div>
+                            <h3 class="text-xl font-semibold text-gray-800 mb-3">Sustainable</h3>
+                            <p class="text-gray-600">Environmentally friendly production that supports biodiversity and soil health.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Popular Herbs Section -->
+                <div class="mb-12">
+                    <h2 class="text-2xl sm:text-3xl font-bold text-gray-800 mb-6">Popular Herbs & Their Uses</h2>
+                    <div class="space-y-6">
+                        <div class="bg-gradient-to-r from-yellow-50 to-orange-50 rounded-xl p-6">
+                            <div class="flex items-start space-x-4">
+                                <div class="text-3xl">🍃</div>
+                                <div>
+                                    <h3 class="text-xl font-semibold text-gray-800 mb-2">Turmeric</h3>
+                                    <p class="text-gray-700 mb-2">Known for its powerful anti-inflammatory properties, turmeric contains curcumin, which may help reduce inflammation and support joint health.</p>
+                                    <p class="text-sm text-gray-600"><strong>Best for:</strong> Joint support, inflammation, antioxidant protection</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-gradient-to-r from-purple-50 to-pink-50 rounded-xl p-6">
+                            <div class="flex items-start space-x-4">
+                                <div class="text-3xl">🌸</div>
+                                <div>
+                                    <h3 class="text-xl font-semibold text-gray-800 mb-2">Ashwagandha</h3>
+                                    <p class="text-gray-700 mb-2">An adaptogenic herb that helps the body manage stress and may improve energy levels, sleep quality, and cognitive function.</p>
+                                    <p class="text-sm text-gray-600"><strong>Best for:</strong> Stress management, energy, sleep support</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-gradient-to-r from-red-50 to-orange-50 rounded-xl p-6">
+                            <div class="flex items-start space-x-4">
+                                <div class="text-3xl">🌶️</div>
+                                <div>
+                                    <h3 class="text-xl font-semibold text-gray-800 mb-2">Ginger</h3>
+                                    <p class="text-gray-700 mb-2">A warming herb excellent for digestive health, nausea relief, and circulation support with natural anti-inflammatory compounds.</p>
+                                    <p class="text-sm text-gray-600"><strong>Best for:</strong> Digestion, nausea, circulation</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl p-6">
+                            <div class="flex items-start space-x-4">
+                                <div class="text-3xl">🌼</div>
+                                <div>
+                                    <h3 class="text-xl font-semibold text-gray-800 mb-2">Chamomile</h3>
+                                    <p class="text-gray-700 mb-2">A gentle, calming herb traditionally used to promote relaxation, improve sleep quality, and soothe digestive discomfort.</p>
+                                    <p class="text-sm text-gray-600"><strong>Best for:</strong> Relaxation, sleep, digestive comfort</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- How to Choose Section -->
+                <div class="mb-12">
+                    <h2 class="text-2xl sm:text-3xl font-bold text-gray-800 mb-6">How to Choose Quality Herbal Products</h2>
+                    <div class="bg-green-50 rounded-2xl p-6 sm:p-8">
+                        <div class="space-y-4">
+                            <div class="flex items-start space-x-3">
+                                <div class="text-green-600 font-bold text-lg">✓</div>
+                                <p class="text-gray-700"><strong>Look for Organic Certification:</strong> Ensures products are free from harmful pesticides and chemicals.</p>
+                            </div>
+                            <div class="flex items-start space-x-3">
+                                <div class="text-green-600 font-bold text-lg">✓</div>
+                                <p class="text-gray-700"><strong>Third-Party Testing:</strong> Verify purity, potency, and safety through independent laboratory testing.</p>
+                            </div>
+                            <div class="flex items-start space-x-3">
+                                <div class="text-green-600 font-bold text-lg">✓</div>
+                                <p class="text-gray-700"><strong>Standardized Extracts:</strong> Ensure consistent levels of active compounds in each dose.</p>
+                            </div>
+                            <div class="flex items-start space-x-3">
+                                <div class="text-green-600 font-bold text-lg">✓</div>
+                                <p class="text-gray-700"><strong>Reputable Source:</strong> Choose companies with transparent practices and good manufacturing standards.</p>
+                            </div>
+                            <div class="flex items-start space-x-3">
+                                <div class="text-green-600 font-bold text-lg">✓</div>
+                                <p class="text-gray-700"><strong>Proper Packaging:</strong> Dark bottles or sealed containers protect herbs from light and moisture.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Safety Information -->
+                <div class="bg-yellow-50 border-l-4 border-yellow-400 rounded-r-xl p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">⚠️ Important Safety Information</h3>
+                    <p class="text-gray-700 mb-3">
+                        While herbal products are generally safe, it's important to use them responsibly:
+                    </p>
+                    <ul class="text-gray-700 space-y-2 text-sm">
+                        <li>• Consult with a healthcare provider before starting any new herbal regimen</li>
+                        <li>• Be aware of potential interactions with medications</li>
+                        <li>• Start with recommended doses and monitor your body's response</li>
+                        <li>• Pregnant or nursing women should seek medical advice before use</li>
+                        <li>• Discontinue use if you experience any adverse reactions</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Shopping Cart Sidebar -->
+    <div id="cart-sidebar" class="fixed inset-y-0 right-0 w-80 bg-white shadow-2xl transform translate-x-full transition-transform duration-300 ease-in-out z-50">
+        <div class="flex flex-col h-full">
+            <div class="flex items-center justify-between p-4 border-b">
+                <h2 class="text-lg font-semibold text-gray-800">Shopping Cart</h2>
+                <button onclick="toggleCart()" class="text-gray-500 hover:text-gray-700">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+            <div id="cart-items" class="flex-1 overflow-y-auto p-4">
+                <div id="empty-cart" class="text-center text-gray-500 mt-8">
+                    <div class="text-4xl mb-4">🛒</div>
+                    <p>Your cart is empty</p>
+                    <p class="text-sm mt-2">Add some products to get started!</p>
+                </div>
+            </div>
+            <div id="cart-footer" class="border-t p-4 hidden">
+                <div class="flex justify-between items-center mb-4">
+                    <span class="text-lg font-semibold">Total:</span>
+                    <span id="cart-total" class="text-xl font-bold text-green-600">$0.00</span>
+                </div>
+                <button onclick="showCheckout()" class="w-full bg-green-600 hover:bg-green-700 text-white py-3 rounded-full font-semibold transition-colors">
+                    Checkout
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cart Overlay -->
+    <div id="cart-overlay" class="fixed inset-0 bg-black bg-opacity-50 hidden z-40" onclick="toggleCart()"></div>
+
+    <!-- Shop Now Page -->
+    <div id="shop-page" class="hidden">
+        <!-- Shop Hero -->
+        <section class="bg-gradient-to-r from-green-600 to-green-700 text-white py-16 sm:py-20">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">Shop Premium Herbal Products</h1>
+                <p class="text-lg sm:text-xl text-green-100 max-w-3xl mx-auto">
+                    Browse our complete collection and add your favorite herbal remedies to your cart
+                </p>
+            </div>
+        </section>
+
+        <!-- Shop Products -->
+        <section class="py-12 sm:py-16 bg-green-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                    <!-- Shop Product 1 -->
+                    <div class="bg-white rounded-2xl shadow-lg overflow-hidden card-hover">
+                        <div class="h-48 bg-gradient-to-br from-green-400 to-green-600 flex items-center justify-center">
+                            <div class="text-5xl">🍃</div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold text-gray-800 mb-2">Turmeric Capsules</h3>
+                            <p class="text-gray-600 mb-4">Premium organic turmeric with black pepper for enhanced absorption</p>
+                            <div class="flex items-center justify-between mb-4">
+                                <span class="text-2xl font-bold text-green-600">$24.99</span>
+                                <div class="flex items-center space-x-2">
+                                    <button onclick="updateQuantity(this, -1)" class="w-8 h-8 rounded-full bg-gray-200 hover:bg-gray-300 flex items-center justify-center">-</button>
+                                    <span class="quantity w-8 text-center">1</span>
+                                    <button onclick="updateQuantity(this, 1)" class="w-8 h-8 rounded-full bg-gray-200 hover:bg-gray-300 flex items-center justify-center">+</button>
+                                </div>
+                            </div>
+                            <button onclick="addToCart('Turmeric Capsules', 24.99, '🍃', this)" class="w-full bg-green-600 hover:bg-green-700 text-white py-2 rounded-full font-medium transition-colors">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Shop Product 2 -->
+                    <div class="bg-white rounded-2xl shadow-lg overflow-hidden card-hover">
+                        <div class="h-48 bg-gradient-to-br from-purple-400 to-purple-600 flex items-center justify-center">
+                            <div class="text-5xl">🌸</div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold text-gray-800 mb-2">Ashwagandha Root</h3>
+                            <p class="text-gray-600 mb-4">Adaptogenic herb for stress management and energy support</p>
+                            <div class="flex items-center justify-between mb-4">
+                                <span class="text-2xl font-bold text-green-600">$29.99</span>
+                                <div class="flex items-center space-x-2">
+                                    <button onclick="updateQuantity(this, -1)" class="w-8 h-8 rounded-full bg-gray-200 hover:bg-gray-300 flex items-center justify-center">-</button>
+                                    <span class="quantity w-8 text-center">1</span>
+                                    <button onclick="updateQuantity(this, 1)" class="w-8 h-8 rounded-full bg-gray-200 hover:bg-gray-300 flex items-center justify-center">+</button>
+                                </div>
+                            </div>
+                            <button onclick="addToCart('Ashwagandha Root', 29.99, '🌸', this)" class="w-full bg-green-600 hover:bg-green-700 text-white py-2 rounded-full font-medium transition-colors">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Shop Product 3 -->
+                    <div class="bg-white rounded-2xl shadow-lg overflow-hidden card-hover">
+                        <div class="h-48 bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center">
+                            <div class="text-5xl">🫖</div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold text-gray-800 mb-2">Herbal Tea Blend</h3>
+                            <p class="text-gray-600 mb-4">Calming blend for relaxation and better sleep</p>
+                            <div class="flex items-center justify-between mb-4">
+                                <span class="text-2xl font-bold text-green-600">$19.99</span>
+                                <div class="flex items-center space-x-2">
+                                    <button onclick="updateQuantity(this, -1)" class="w-8 h-8 rounded-full bg-gray-200 hover:bg-gray-300 flex items-center justify-center">-</button>
+                                    <span class="quantity w-8 text-center">1</span>
+                                    <button onclick="updateQuantity(this, 1)" class="w-8 h-8 rounded-full bg-gray-200 hover:bg-gray-300 flex items-center justify-center">+</button>
+                                </div>
+                            </div>
+                            <button onclick="addToCart('Herbal Tea Blend', 19.99, '🫖', this)" class="w-full bg-green-600 hover:bg-green-700 text-white py-2 rounded-full font-medium transition-colors">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Shop Product 4 -->
+                    <div class="bg-white rounded-2xl shadow-lg overflow-hidden card-hover">
+                        <div class="h-48 bg-gradient-to-br from-orange-400 to-orange-600 flex items-center justify-center">
+                            <div class="text-5xl">🍯</div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold text-gray-800 mb-2">Manuka Honey</h3>
+                            <p class="text-gray-600 mb-4">Raw honey with natural antibacterial properties</p>
+                            <div class="flex items-center justify-between mb-4">
+                                <span class="text-2xl font-bold text-green-600">$39.99</span>
+                                <div class="flex items-center space-x-2">
+                                    <button onclick="updateQuantity(this, -1)" class="w-8 h-8 rounded-full bg-gray-200 hover:bg-gray-300 flex items-center justify-center">-</button>
+                                    <span class="quantity w-8 text-center">1</span>
+                                    <button onclick="updateQuantity(this, 1)" class="w-8 h-8 rounded-full bg-gray-200 hover:bg-gray-300 flex items-center justify-center">+</button>
+                                </div>
+                            </div>
+                            <button onclick="addToCart('Manuka Honey', 39.99, '🍯', this)" class="w-full bg-green-600 hover:bg-green-700 text-white py-2 rounded-full font-medium transition-colors">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Shop Product 5 -->
+                    <div class="bg-white rounded-2xl shadow-lg overflow-hidden card-hover">
+                        <div class="h-48 bg-gradient-to-br from-red-400 to-red-600 flex items-center justify-center">
+                            <div class="text-5xl">🌶️</div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold text-gray-800 mb-2">Ginger Extract</h3>
+                            <p class="text-gray-600 mb-4">Concentrated extract for digestive support</p>
+                            <div class="flex items-center justify-between mb-4">
+                                <span class="text-2xl font-bold text-green-600">$22.99</span>
+                                <div class="flex items-center space-x-2">
+                                    <button onclick="updateQuantity(this, -1)" class="w-8 h-8 rounded-full bg-gray-200 hover:bg-gray-300 flex items-center justify-center">-</button>
+                                    <span class="quantity w-8 text-center">1</span>
+                                    <button onclick="updateQuantity(this, 1)" class="w-8 h-8 rounded-full bg-gray-200 hover:bg-gray-300 flex items-center justify-center">+</button>
+                                </div>
+                            </div>
+                            <button onclick="addToCart('Ginger Extract', 22.99, '🌶️', this)" class="w-full bg-green-600 hover:bg-green-700 text-white py-2 rounded-full font-medium transition-colors">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Shop Product 6 -->
+                    <div class="bg-white rounded-2xl shadow-lg overflow-hidden card-hover">
+                        <div class="h-48 bg-gradient-to-br from-indigo-400 to-indigo-600 flex items-center justify-center">
+                            <div class="text-5xl">💜</div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold text-gray-800 mb-2">Elderberry Syrup</h3>
+                            <p class="text-gray-600 mb-4">Immune-boosting syrup with natural vitamin C</p>
+                            <div class="flex items-center justify-between mb-4">
+                                <span class="text-2xl font-bold text-green-600">$27.99</span>
+                                <div class="flex items-center space-x-2">
+                                    <button onclick="updateQuantity(this, -1)" class="w-8 h-8 rounded-full bg-gray-200 hover:bg-gray-300 flex items-center justify-center">-</button>
+                                    <span class="quantity w-8 text-center">1</span>
+                                    <button onclick="updateQuantity(this, 1)" class="w-8 h-8 rounded-full bg-gray-200 hover:bg-gray-300 flex items-center justify-center">+</button>
+                                </div>
+                            </div>
+                            <button onclick="addToCart('Elderberry Syrup', 27.99, '💜', this)" class="w-full bg-green-600 hover:bg-green-700 text-white py-2 rounded-full font-medium transition-colors">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Shop Product 7 -->
+                    <div class="bg-white rounded-2xl shadow-lg overflow-hidden card-hover">
+                        <div class="h-48 bg-gradient-to-br from-yellow-400 to-yellow-600 flex items-center justify-center">
+                            <div class="text-5xl">🌻</div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold text-gray-800 mb-2">Milk Thistle</h3>
+                            <p class="text-gray-600 mb-4">Liver support and detoxification</p>
+                            <div class="flex items-center justify-between mb-4">
+                                <span class="text-2xl font-bold text-green-600">$26.99</span>
+                                <div class="flex items-center space-x-2">
+                                    <button onclick="updateQuantity(this, -1)" class="w-8 h-8 rounded-full bg-gray-200 hover:bg-gray-300 flex items-center justify-center">-</button>
+                                    <span class="quantity w-8 text-center">1</span>
+                                    <button onclick="updateQuantity(this, 1)" class="w-8 h-8 rounded-full bg-gray-200 hover:bg-gray-300 flex items-center justify-center">+</button>
+                                </div>
+                            </div>
+                            <button onclick="addToCart('Milk Thistle', 26.99, '🌻', this)" class="w-full bg-green-600 hover:bg-green-700 text-white py-2 rounded-full font-medium transition-colors">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Shop Product 8 -->
+                    <div class="bg-white rounded-2xl shadow-lg overflow-hidden card-hover">
+                        <div class="h-48 bg-gradient-to-br from-teal-400 to-teal-600 flex items-center justify-center">
+                            <div class="text-5xl">🍵</div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold text-gray-800 mb-2">Green Tea Plus</h3>
+                            <p class="text-gray-600 mb-4">Antioxidant-rich green tea blend</p>
+                            <div class="flex items-center justify-between mb-4">
+                                <span class="text-2xl font-bold text-green-600">$21.99</span>
+                                <div class="flex items-center space-x-2">
+                                    <button onclick="updateQuantity(this, -1)" class="w-8 h-8 rounded-full bg-gray-200 hover:bg-gray-300 flex items-center justify-center">-</button>
+                                    <span class="quantity w-8 text-center">1</span>
+                                    <button onclick="updateQuantity(this, 1)" class="w-8 h-8 rounded-full bg-gray-200 hover:bg-gray-300 flex items-center justify-center">+</button>
+                                </div>
+                            </div>
+                            <button onclick="addToCart('Green Tea Plus', 21.99, '🍵', this)" class="w-full bg-green-600 hover:bg-green-700 text-white py-2 rounded-full font-medium transition-colors">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Checkout Page -->
+    <div id="checkout-page" class="hidden">
+        <!-- Checkout Hero -->
+        <section class="bg-gradient-to-r from-green-600 to-green-700 text-white py-12">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h1 class="text-3xl sm:text-4xl font-bold mb-4">Secure Checkout</h1>
+                <p class="text-lg text-green-100">Complete your order safely and securely</p>
+            </div>
+        </section>
+
+        <!-- Checkout Content -->
+        <section class="py-12 bg-gray-50">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid lg:grid-cols-2 gap-8">
+                    <!-- Order Summary -->
+                    <div class="bg-white rounded-2xl shadow-lg p-6">
+                        <h2 class="text-2xl font-bold text-gray-800 mb-6">Order Summary</h2>
+                        <div id="checkout-items" class="space-y-4 mb-6">
+                            <!-- Items will be populated by JavaScript -->
+                        </div>
+                        <div class="border-t pt-4 space-y-2">
+                            <div class="flex justify-between text-gray-600">
+                                <span>Subtotal:</span>
+                                <span id="checkout-subtotal">$0.00</span>
+                            </div>
+                            <div class="flex justify-between text-gray-600">
+                                <span>Shipping:</span>
+                                <span id="checkout-shipping">$5.99</span>
+                            </div>
+                            <div class="flex justify-between text-gray-600">
+                                <span>Tax:</span>
+                                <span id="checkout-tax">$0.00</span>
+                            </div>
+                            <div class="border-t pt-2 flex justify-between text-xl font-bold text-gray-800">
+                                <span>Total:</span>
+                                <span id="checkout-total">$0.00</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Checkout Form -->
+                    <div class="bg-white rounded-2xl shadow-lg p-6">
+                        <h2 class="text-2xl font-bold text-gray-800 mb-6">Shipping Information</h2>
+                        <form id="checkout-form" class="space-y-4">
+                            <div class="grid sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">First Name</label>
+                                    <input type="text" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">Last Name</label>
+                                    <input type="text" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent">
+                                </div>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Email Address</label>
+                                <input type="email" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Phone Number</label>
+                                <input type="tel" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Street Address</label>
+                                <input type="text" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent">
+                            </div>
+                            <div class="grid sm:grid-cols-3 gap-4">
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">City</label>
+                                    <input type="text" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">State</label>
+                                    <select required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent">
+                                        <option value="">Select State</option>
+                                        <option value="AL">Alabama</option>
+                                        <option value="CA">California</option>
+                                        <option value="FL">Florida</option>
+                                        <option value="NY">New York</option>
+                                        <option value="TX">Texas</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">ZIP Code</label>
+                                    <input type="text" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent">
+                                </div>
+                            </div>
+                            <div class="pt-4">
+                                <button type="button" onclick="showPayment()" class="w-full bg-green-600 hover:bg-green-700 text-white py-3 rounded-full font-semibold transition-colors">
+                                    Continue to Payment
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Payment Page -->
+    <div id="payment-page" class="hidden">
+        <!-- Payment Hero -->
+        <section class="bg-gradient-to-r from-green-600 to-green-700 text-white py-12">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h1 class="text-3xl sm:text-4xl font-bold mb-4">Payment Details</h1>
+                <p class="text-lg text-green-100">Your information is secure and encrypted</p>
+            </div>
+        </section>
+
+        <!-- Payment Content -->
+        <section class="py-12 bg-gray-50">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="bg-white rounded-2xl shadow-lg p-6 sm:p-8">
+                    <!-- Security Notice -->
+                    <div class="bg-green-50 border border-green-200 rounded-lg p-4 mb-6">
+                        <div class="flex items-center">
+                            <div class="text-green-600 text-xl mr-3">🔒</div>
+                            <div>
+                                <h3 class="font-semibold text-green-800">Secure Payment</h3>
+                                <p class="text-sm text-green-700">Your payment information is encrypted and secure</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Payment Methods -->
+                    <div class="mb-6">
+                        <h3 class="text-lg font-semibold text-gray-800 mb-4">Payment Method</h3>
+                        <div class="grid sm:grid-cols-3 gap-4">
+                            <label class="payment-method cursor-pointer">
+                                <input type="radio" name="payment" value="card" checked class="sr-only">
+                                <div class="border-2 border-gray-200 rounded-lg p-4 text-center hover:border-green-500 transition-colors payment-option">
+                                    <div class="text-2xl mb-2">💳</div>
+                                    <div class="font-medium">Credit Card</div>
+                                </div>
+                            </label>
+                            <label class="payment-method cursor-pointer">
+                                <input type="radio" name="payment" value="paypal" class="sr-only">
+                                <div class="border-2 border-gray-200 rounded-lg p-4 text-center hover:border-green-500 transition-colors payment-option">
+                                    <div class="text-2xl mb-2">🅿️</div>
+                                    <div class="font-medium">PayPal</div>
+                                </div>
+                            </label>
+                            <label class="payment-method cursor-pointer">
+                                <input type="radio" name="payment" value="apple" class="sr-only">
+                                <div class="border-2 border-gray-200 rounded-lg p-4 text-center hover:border-green-500 transition-colors payment-option">
+                                    <div class="text-2xl mb-2">🍎</div>
+                                    <div class="font-medium">Apple Pay</div>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Credit Card Form -->
+                    <div id="card-form" class="space-y-4">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Card Number</label>
+                            <input type="text" placeholder="1234 5678 9012 3456" maxlength="19" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Cardholder Name</label>
+                            <input type="text" placeholder="John Doe" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent">
+                        </div>
+                        <div class="grid sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Expiry Date</label>
+                                <input type="text" placeholder="MM/YY" maxlength="5" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">CVV</label>
+                                <input type="text" placeholder="123" maxlength="4" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Order Summary -->
+                    <div class="bg-gray-50 rounded-lg p-4 mt-6 mb-6">
+                        <h3 class="font-semibold text-gray-800 mb-3">Order Total</h3>
+                        <div class="space-y-2 text-sm">
+                            <div class="flex justify-between">
+                                <span>Subtotal:</span>
+                                <span id="payment-subtotal">$0.00</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>Shipping:</span>
+                                <span>$5.99</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>Tax:</span>
+                                <span id="payment-tax">$0.00</span>
+                            </div>
+                            <div class="border-t pt-2 flex justify-between font-bold text-lg">
+                                <span>Total:</span>
+                                <span id="payment-total">$0.00</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Action Buttons -->
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <button onclick="showCheckout()" class="flex-1 bg-gray-200 hover:bg-gray-300 text-gray-700 py-3 rounded-full font-semibold transition-colors">
+                            Back to Shipping
+                        </button>
+                        <button onclick="processPayment()" class="flex-1 bg-green-600 hover:bg-green-700 text-white py-3 rounded-full font-semibold transition-colors">
+                            Complete Order
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Order Confirmation Page -->
+    <div id="confirmation-page" class="hidden">
+        <!-- Confirmation Hero -->
+        <section class="bg-gradient-to-r from-green-600 to-green-700 text-white py-16">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <div class="text-6xl mb-4">✅</div>
+                <h1 class="text-3xl sm:text-4xl font-bold mb-4">Order Confirmed!</h1>
+                <p class="text-lg text-green-100">Thank you for your purchase. Your order has been successfully placed.</p>
+            </div>
+        </section>
+
+        <!-- Confirmation Details -->
+        <section class="py-12 bg-gray-50">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="bg-white rounded-2xl shadow-lg p-6 sm:p-8">
+                    <div class="text-center mb-8">
+                        <h2 class="text-2xl font-bold text-gray-800 mb-2">Order #PN-2024-001</h2>
+                        <p class="text-gray-600">Confirmation email sent to your inbox</p>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <!-- Order Details -->
+                        <div>
+                            <h3 class="text-lg font-semibold text-gray-800 mb-4">Order Details</h3>
+                            <div id="confirmation-items" class="space-y-3">
+                                <!-- Items will be populated by JavaScript -->
+                            </div>
+                            <div class="border-t mt-4 pt-4">
+                                <div class="flex justify-between font-bold text-lg">
+                                    <span>Total Paid:</span>
+                                    <span id="confirmation-total" class="text-green-600">$0.00</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Shipping Info -->
+                        <div>
+                            <h3 class="text-lg font-semibold text-gray-800 mb-4">Shipping Information</h3>
+                            <div class="bg-gray-50 rounded-lg p-4 space-y-2 text-sm">
+                                <div><strong>Estimated Delivery:</strong> 3-5 business days</div>
+                                <div><strong>Shipping Method:</strong> Standard Shipping</div>
+                                <div><strong>Tracking:</strong> You'll receive tracking info via email</div>
+                            </div>
+
+                            <h3 class="text-lg font-semibold text-gray-800 mb-4 mt-6">What's Next?</h3>
+                            <div class="space-y-3 text-sm text-gray-600">
+                                <div class="flex items-start space-x-3">
+                                    <div class="text-green-600 font-bold">1.</div>
+                                    <div>We'll prepare your order within 24 hours</div>
+                                </div>
+                                <div class="flex items-start space-x-3">
+                                    <div class="text-green-600 font-bold">2.</div>
+                                    <div>You'll receive tracking information via email</div>
+                                </div>
+                                <div class="flex items-start space-x-3">
+                                    <div class="text-green-600 font-bold">3.</div>
+                                    <div>Your order will arrive in 3-5 business days</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="text-center mt-8 pt-8 border-t">
+                        <button onclick="showPage('home')" class="bg-green-600 hover:bg-green-700 text-white px-8 py-3 rounded-full font-semibold transition-colors mr-4">
+                            Continue Shopping
+                        </button>
+                        <button onclick="window.print()" class="bg-gray-200 hover:bg-gray-300 text-gray-700 px-8 py-3 rounded-full font-semibold transition-colors">
+                            Print Receipt
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer id="contact" class="bg-gray-800 text-white py-8 sm:py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid sm:grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8">
+                <div class="sm:col-span-2 md:col-span-1">
+                    <div class="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">🌿 Pure Nature</div>
+                    <p class="text-gray-400 mb-3 sm:mb-4 text-sm sm:text-base">
+                        Your trusted source for premium organic herbal products
+                    </p>
+                    <div class="flex space-x-4">
+                        <button class="text-gray-400 hover:text-white text-lg sm:text-xl">📘</button>
+                        <button class="text-gray-400 hover:text-white text-lg sm:text-xl">📷</button>
+                        <button class="text-gray-400 hover:text-white text-lg sm:text-xl">🐦</button>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-base sm:text-lg font-semibold mb-3 sm:mb-4">Quick Links</h3>
+                    <ul class="space-y-1 sm:space-y-2 text-gray-400 text-sm sm:text-base">
+                        <li><a href="#" class="hover:text-white">About Us</a></li>
+                        <li><a href="#" class="hover:text-white">Products</a></li>
+                        <li><a href="#" class="hover:text-white">Blog</a></li>
+                        <li><a href="#" class="hover:text-white">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-base sm:text-lg font-semibold mb-3 sm:mb-4">Customer Care</h3>
+                    <ul class="space-y-1 sm:space-y-2 text-gray-400 text-sm sm:text-base">
+                        <li><a href="#" class="hover:text-white">Shipping Info</a></li>
+                        <li><a href="#" class="hover:text-white">Returns</a></li>
+                        <li><a href="#" class="hover:text-white">FAQ</a></li>
+                        <li><a href="#" class="hover:text-white">Support</a></li>
+                    </ul>
+                </div>
+                <div class="sm:col-span-2 md:col-span-1">
+                    <h3 class="text-base sm:text-lg font-semibold mb-3 sm:mb-4">Contact Info</h3>
+                    <div class="space-y-1 sm:space-y-2 text-gray-400 text-sm sm:text-base">
+                        <p>📞 1-800-HERBS-01</p>
+                        <p>✉️ info@purenature.com</p>
+                        <p>📍 123 Wellness Way<br>Natural City, NC 12345</p>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-6 sm:mt-8 pt-6 sm:pt-8 text-center text-gray-400 text-xs sm:text-sm">
+                <p>&copy; 2024 Pure Nature. All rights reserved. | Privacy Policy | Terms of Service</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add to cart functionality
+        document.querySelectorAll('button:contains("Add to Cart")').forEach(button => {
+            if (button.textContent.includes('Add to Cart')) {
+                button.addEventListener('click', function() {
+                    const productCard = this.closest('.card-hover');
+                    const productName = productCard.querySelector('h3').textContent;
+                    
+                    // Visual feedback
+                    this.textContent = 'Added!';
+                    this.classList.remove('bg-green-600', 'hover:bg-green-700');
+                    this.classList.add('bg-green-800');
+                    
+                    setTimeout(() => {
+                        this.textContent = 'Add to Cart';
+                        this.classList.remove('bg-green-800');
+                        this.classList.add('bg-green-600', 'hover:bg-green-700');
+                    }, 2000);
+                    
+                    alert(`${productName} added to cart!`);
+                });
+            }
+        });
+
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuBtn.addEventListener('click', function() {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', function() {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Newsletter subscription
+        document.querySelector('button:contains("Subscribe")').addEventListener('click', function() {
+            const emailInput = document.querySelector('input[type="email"]');
+            const email = emailInput.value.trim();
+            
+            if (email && email.includes('@')) {
+                alert('Thank you for subscribing! You\'ll receive our latest updates and offers.');
+                emailInput.value = '';
+            } else {
+                alert('Please enter a valid email address.');
+            }
+        });
+
+        // Shopping cart functionality
+        let cart = [];
+        let cartTotal = 0;
+
+        function toggleCart() {
+            const sidebar = document.getElementById('cart-sidebar');
+            const overlay = document.getElementById('cart-overlay');
+            
+            if (sidebar.classList.contains('translate-x-full')) {
+                sidebar.classList.remove('translate-x-full');
+                overlay.classList.remove('hidden');
+            } else {
+                sidebar.classList.add('translate-x-full');
+                overlay.classList.add('hidden');
+            }
+        }
+
+        function updateQuantity(button, change) {
+            const quantitySpan = button.parentElement.querySelector('.quantity');
+            let quantity = parseInt(quantitySpan.textContent);
+            quantity = Math.max(1, quantity + change);
+            quantitySpan.textContent = quantity;
+        }
+
+        function addToCart(name, price, emoji, button) {
+            const quantitySpan = button.parentElement.querySelector('.quantity');
+            const quantity = parseInt(quantitySpan.textContent);
+            
+            // Check if item already exists in cart
+            const existingItem = cart.find(item => item.name === name);
+            
+            if (existingItem) {
+                existingItem.quantity += quantity;
+            } else {
+                cart.push({
+                    name: name,
+                    price: price,
+                    emoji: emoji,
+                    quantity: quantity,
+                    id: Date.now()
+                });
+            }
+            
+            updateCartDisplay();
+            
+            // Visual feedback
+            button.textContent = 'Added!';
+            button.classList.remove('bg-green-600', 'hover:bg-green-700');
+            button.classList.add('bg-green-800');
+            
+            setTimeout(() => {
+                button.textContent = 'Add to Cart';
+                button.classList.remove('bg-green-800');
+                button.classList.add('bg-green-600', 'hover:bg-green-700');
+            }, 1500);
+            
+            // Reset quantity to 1
+            quantitySpan.textContent = '1';
+        }
+
+        function removeFromCart(id) {
+            cart = cart.filter(item => item.id !== id);
+            updateCartDisplay();
+        }
+
+        function updateCartItemQuantity(id, change) {
+            const item = cart.find(item => item.id === id);
+            if (item) {
+                item.quantity = Math.max(1, item.quantity + change);
+                updateCartDisplay();
+            }
+        }
+
+        function updateCartDisplay() {
+            const cartItems = document.getElementById('cart-items');
+            const cartCount = document.getElementById('cart-count');
+            const cartTotal = document.getElementById('cart-total');
+            const cartFooter = document.getElementById('cart-footer');
+            const emptyCart = document.getElementById('empty-cart');
+            
+            // Calculate totals
+            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+            const totalPrice = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            
+            // Update cart count badge
+            if (totalItems > 0) {
+                cartCount.textContent = totalItems;
+                cartCount.classList.remove('hidden');
+            } else {
+                cartCount.classList.add('hidden');
+            }
+            
+            // Update cart display
+            if (cart.length === 0) {
+                emptyCart.classList.remove('hidden');
+                cartFooter.classList.add('hidden');
+            } else {
+                emptyCart.classList.add('hidden');
+                cartFooter.classList.remove('hidden');
+                
+                cartItems.innerHTML = cart.map(item => `
+                    <div class="flex items-center space-x-3 p-3 bg-gray-50 rounded-lg mb-3">
+                        <div class="text-2xl">${item.emoji}</div>
+                        <div class="flex-1">
+                            <h4 class="font-medium text-gray-800">${item.name}</h4>
+                            <p class="text-sm text-gray-600">$${item.price.toFixed(2)} each</p>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <button onclick="updateCartItemQuantity(${item.id}, -1)" class="w-6 h-6 rounded-full bg-gray-200 hover:bg-gray-300 flex items-center justify-center text-sm">-</button>
+                            <span class="w-8 text-center">${item.quantity}</span>
+                            <button onclick="updateCartItemQuantity(${item.id}, 1)" class="w-6 h-6 rounded-full bg-gray-200 hover:bg-gray-300 flex items-center justify-center text-sm">+</button>
+                        </div>
+                        <button onclick="removeFromCart(${item.id})" class="text-red-500 hover:text-red-700 p-1">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                            </svg>
+                        </button>
+                    </div>
+                `).join('');
+                
+                cartTotal.textContent = `$${totalPrice.toFixed(2)}`;
+            }
+        }
+
+        // Page navigation functionality
+        function showPage(page) {
+            // Hide all pages
+            document.getElementById('main-content').classList.add('hidden');
+            document.getElementById('products-page').classList.add('hidden');
+            document.getElementById('learn-page').classList.add('hidden');
+            document.getElementById('shop-page').classList.add('hidden');
+            document.getElementById('checkout-page').classList.add('hidden');
+            document.getElementById('payment-page').classList.add('hidden');
+            document.getElementById('confirmation-page').classList.add('hidden');
+            
+            // Show selected page
+            if (page === 'home') {
+                document.getElementById('main-content').classList.remove('hidden');
+            } else if (page === 'products') {
+                document.getElementById('products-page').classList.remove('hidden');
+            } else if (page === 'learn') {
+                document.getElementById('learn-page').classList.remove('hidden');
+            } else if (page === 'shop') {
+                document.getElementById('shop-page').classList.remove('hidden');
+            } else if (page === 'checkout') {
+                document.getElementById('checkout-page').classList.remove('hidden');
+            } else if (page === 'payment') {
+                document.getElementById('payment-page').classList.remove('hidden');
+            } else if (page === 'confirmation') {
+                document.getElementById('confirmation-page').classList.remove('hidden');
+            }
+            
+            // Close mobile menu if open
+            document.getElementById('mobile-menu').classList.add('hidden');
+            
+            // Scroll to top
+            window.scrollTo(0, 0);
+        }
+
+        // Checkout functionality
+        function showCheckout() {
+            if (cart.length === 0) {
+                alert('Your cart is empty! Please add some products first.');
+                return;
+            }
+            
+            showPage('checkout');
+            updateCheckoutDisplay();
+            toggleCart(); // Close cart sidebar
+        }
+
+        function showPayment() {
+            // Validate checkout form
+            const form = document.getElementById('checkout-form');
+            if (!form.checkValidity()) {
+                form.reportValidity();
+                return;
+            }
+            
+            showPage('payment');
+            updatePaymentDisplay();
+        }
+
+        function updateCheckoutDisplay() {
+            const checkoutItems = document.getElementById('checkout-items');
+            const subtotalEl = document.getElementById('checkout-subtotal');
+            const taxEl = document.getElementById('checkout-tax');
+            const totalEl = document.getElementById('checkout-total');
+            
+            const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            const shipping = subtotal >= 50 ? 0 : 5.99;
+            const tax = subtotal * 0.08; // 8% tax
+            const total = subtotal + shipping + tax;
+            
+            // Update shipping display
+            const shippingEl = document.getElementById('checkout-shipping');
+            shippingEl.textContent = shipping === 0 ? 'FREE' : `$${shipping.toFixed(2)}`;
+            
+            checkoutItems.innerHTML = cart.map(item => `
+                <div class="flex items-center space-x-3 p-3 bg-gray-50 rounded-lg">
+                    <div class="text-2xl">${item.emoji}</div>
+                    <div class="flex-1">
+                        <h4 class="font-medium text-gray-800">${item.name}</h4>
+                        <p class="text-sm text-gray-600">$${item.price.toFixed(2)} × ${item.quantity}</p>
+                    </div>
+                    <div class="font-semibold text-gray-800">$${(item.price * item.quantity).toFixed(2)}</div>
+                </div>
+            `).join('');
+            
+            subtotalEl.textContent = `$${subtotal.toFixed(2)}`;
+            taxEl.textContent = `$${tax.toFixed(2)}`;
+            totalEl.textContent = `$${total.toFixed(2)}`;
+        }
+
+        function updatePaymentDisplay() {
+            const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            const shipping = subtotal >= 50 ? 0 : 5.99;
+            const tax = subtotal * 0.08;
+            const total = subtotal + shipping + tax;
+            
+            document.getElementById('payment-subtotal').textContent = `$${subtotal.toFixed(2)}`;
+            document.getElementById('payment-tax').textContent = `$${tax.toFixed(2)}`;
+            document.getElementById('payment-total').textContent = `$${total.toFixed(2)}`;
+        }
+
+        function processPayment() {
+            // Simulate payment processing
+            const button = event.target;
+            const originalText = button.textContent;
+            
+            button.textContent = 'Processing...';
+            button.disabled = true;
+            
+            setTimeout(() => {
+                // Show confirmation page
+                showPage('confirmation');
+                updateConfirmationDisplay();
+                
+                // Clear cart
+                cart = [];
+                updateCartDisplay();
+                
+                button.textContent = originalText;
+                button.disabled = false;
+            }, 2000);
+        }
+
+        function updateConfirmationDisplay() {
+            const confirmationItems = document.getElementById('confirmation-items');
+            const confirmationTotal = document.getElementById('confirmation-total');
+            
+            const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            const shipping = subtotal >= 50 ? 0 : 5.99;
+            const tax = subtotal * 0.08;
+            const total = subtotal + shipping + tax;
+            
+            confirmationItems.innerHTML = cart.map(item => `
+                <div class="flex items-center justify-between p-2 bg-gray-50 rounded">
+                    <div class="flex items-center space-x-2">
+                        <span class="text-lg">${item.emoji}</span>
+                        <span class="font-medium">${item.name}</span>
+                        <span class="text-gray-600">× ${item.quantity}</span>
+                    </div>
+                    <span class="font-semibold">$${(item.price * item.quantity).toFixed(2)}</span>
+                </div>
+            `).join('');
+            
+            confirmationTotal.textContent = `$${total.toFixed(2)}`;
+        }
+
+        // Product filtering functionality
+        function filterProducts(category) {
+            const products = document.querySelectorAll('.product-item');
+            const buttons = document.querySelectorAll('.category-btn');
+            
+            // Update button styles
+            buttons.forEach(btn => {
+                btn.classList.remove('bg-green-600', 'text-white');
+                btn.classList.add('bg-gray-200', 'text-gray-700');
+            });
+            
+            event.target.classList.remove('bg-gray-200', 'text-gray-700');
+            event.target.classList.add('bg-green-600', 'text-white');
+            
+            // Show/hide products
+            products.forEach(product => {
+                if (category === 'all' || product.classList.contains(category)) {
+                    product.style.display = 'block';
+                } else {
+                    product.style.display = 'none';
+                }
+            });
+        }
+
+        // Payment method selection
+        document.addEventListener('DOMContentLoaded', function() {
+            // Payment method selection
+            const paymentMethods = document.querySelectorAll('.payment-method');
+            paymentMethods.forEach(method => {
+                method.addEventListener('click', function() {
+                    // Remove selected state from all methods
+                    paymentMethods.forEach(m => {
+                        m.querySelector('.payment-option').classList.remove('border-green-500', 'bg-green-50');
+                        m.querySelector('.payment-option').classList.add('border-gray-200');
+                    });
+                    
+                    // Add selected state to clicked method
+                    const option = this.querySelector('.payment-option');
+                    option.classList.remove('border-gray-200');
+                    option.classList.add('border-green-500', 'bg-green-50');
+                    
+                    // Show/hide card form based on selection
+                    const cardForm = document.getElementById('card-form');
+                    const selectedValue = this.querySelector('input').value;
+                    
+                    if (selectedValue === 'card') {
+                        cardForm.style.display = 'block';
+                    } else {
+                        cardForm.style.display = 'none';
+                    }
+                });
+            });
+
+            // Credit card number formatting
+            const cardNumberInput = document.querySelector('input[placeholder="1234 5678 9012 3456"]');
+            if (cardNumberInput) {
+                cardNumberInput.addEventListener('input', function(e) {
+                    let value = e.target.value.replace(/\s/g, '').replace(/[^0-9]/gi, '');
+                    let formattedValue = value.match(/.{1,4}/g)?.join(' ') || value;
+                    e.target.value = formattedValue;
+                });
+            }
+
+            // Expiry date formatting
+            const expiryInput = document.querySelector('input[placeholder="MM/YY"]');
+            if (expiryInput) {
+                expiryInput.addEventListener('input', function(e) {
+                    let value = e.target.value.replace(/\D/g, '');
+                    if (value.length >= 2) {
+                        value = value.substring(0, 2) + '/' + value.substring(2, 4);
+                    }
+                    e.target.value = value;
+                });
+            }
+
+            // CVV input restriction
+            const cvvInput = document.querySelector('input[placeholder="123"]');
+            if (cvvInput) {
+                cvvInput.addEventListener('input', function(e) {
+                    e.target.value = e.target.value.replace(/[^0-9]/g, '');
+                });
+            }
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'976946def786a804',t:'MTc1NjQ0MTQ0Ny4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
